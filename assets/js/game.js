@@ -38,7 +38,18 @@ var startGame = function() {
             var pickedEnemyName = enemyNames[i]
             enemyHealth = 50
     
-            fight(pickedENemyName);
+            fight(pickedEnemyName);
+                //shop
+                
+
+                if (playerHealth > 0 && i < enemyNames.length - 1) {
+
+                    var storeConfirm = window.confirm("The fight is over! Would you like to visit the shop before your next fight?")
+                    if (storeConfirm) {
+                        shop();
+                    }
+                }
+
         }   else {
             window.alert("You have lost your robot in battle! Game Over!");
             break;
@@ -119,7 +130,14 @@ var fight = function(enemyName) {
                 window.alert(playerName + " still has " + playerHealth + " health left.");
             }
         }
-    }   
+    } 
+    
+var shop = function() {
+    var shopOptionPrompt = window.prompt(
+        "Would you like to REFILL your health UPGRADE your attack, or LEAVE the shop? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice."
+    )
+    
+};
 
 startGame();
 
